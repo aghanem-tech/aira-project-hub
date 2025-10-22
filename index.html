@@ -20,6 +20,7 @@
             --accent-blue: #3B82F6;
             --accent-green: #10B981;
             --accent-red: #EF4444;
+            --accent-yellow: #F59E0B; /* Added for 'In Pipeline' status */
         }
         html {
             scroll-behavior: smooth;
@@ -124,7 +125,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Home Section */
         #home {
             text-align: center;
@@ -202,7 +203,6 @@
         .total-time span { color: var(--accent-blue); }
         .total-time.aira span { color: var(--accent-green); }
 
-
         /* Problem Section */
         .problem-grid {
             display: grid;
@@ -240,6 +240,12 @@
         .card-body strong {
             color: var(--text-light);
             font-weight: 500;
+        }
+        .card-body img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 16px;
+            border: 1px solid var(--border-dark);
         }
 
         /* Features Section */
@@ -285,23 +291,23 @@
             font-weight: 500;
         }
 
-        /* Roadmap Section */
-        .roadmap-timeline {
+        /* Roadmap Section & Future Ideas Section (Shared Styles) */
+        .card-grid-3-col {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
         }
-        .roadmap-card {
+        .item-card {
             background-color: var(--surface-dark-1);
             border: 1px solid var(--border-dark);
             border-radius: 12px;
             padding: 32px;
             text-align: left;
         }
-        .roadmap-card .card-header {
+        .item-card .card-header {
             margin-bottom: 20px;
         }
-        .card-number {
+        .card-number { /* Used for Roadmap */
             font-size: 28px;
             font-weight: 700;
             color: var(--accent-blue);
@@ -313,6 +319,10 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+        }
+         .card-icon-future { /* Used for Future Ideas */
+            font-size: 40px;
+            color: var(--accent-yellow);
         }
         .card-title-group {
             display: flex;
@@ -328,7 +338,7 @@
             color: var(--accent-green);
             text-transform: uppercase;
         }
-        .roadmap-card .card-body p {
+        .item-card .card-body p {
             font-family: 'Roboto', sans-serif;
             font-size: 16px;
             line-height: 1.6;
@@ -366,12 +376,12 @@
             <a href="#problem" class="nav-link">The Problem</a>
             <a href="#features" class="nav-link">Features</a>
             <a href="#roadmap" class="nav-link">Roadmap</a>
+            <a href="#future" class="nav-link">Future Ideas</a>
             <a href="#contact" class="nav-link">Demo & Contact</a>
         </nav>
     </header>
 
     <main>
-        <!-- HOME SECTION -->
         <section id="home" class="section">
             <h1 class="section-title">From Hours of Research to Minutes of Strategy</h1>
             <p class="section-subtitle">
@@ -393,7 +403,6 @@
             </div>
         </section>
 
-        <!-- BREAKDOWN SECTION -->
         <section id="breakdown" class="section">
             <h2 class="section-title">The 22x Productivity Gain: A Breakdown</h2>
             <p class="section-subtitle">The productivity gain is calculated by comparing the time required for a diligent manual workflow against the highly automated AiRA workflow for a single strategic account.</p>
@@ -419,8 +428,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- PROBLEM SECTION -->
+
         <section id="problem" class="section">
             <h2 class="section-title">The High Cost of "Being Prepared"</h2>
             <p class="section-subtitle">Our current sales preparation process is inefficient and doesn't scale, creating three critical business challenges.</p>
@@ -455,7 +463,6 @@
             </div>
         </section>
 
-        <!-- FEATURES SECTION -->
         <section id="features" class="section">
             <h2 class="section-title">The AiRA Solution: Features & Capabilities</h2>
             <p class="section-subtitle">AiRA's core feature is the automated Strategic Overview, a comprehensive client brief generated on demand. Here's what's inside.</p>
@@ -491,12 +498,11 @@
             </div>
         </section>
 
-        <!-- ROADMAP SECTION -->
         <section id="roadmap" class="section">
             <h2 class="section-title">The Vision: From Prototype to Platform</h2>
             <p class="section-subtitle">The current AiRA prototype has validated our core concept. The next phase is to build the production version, "Workspace AI Scout" (WAS), on Google's enterprise-grade Vertex AI platform.</p>
-            <div class="roadmap-timeline">
-                <div class="roadmap-card">
+            <div class="card-grid-3-col">
+                <div class="item-card">
                     <div class="card-header">
                         <div class="card-number">1</div>
                         <div class="card-title-group">
@@ -508,7 +514,7 @@
                         <p>Deployed a feature-complete Proof-of-Concept in Apps Script, validating the core concept, user need, and technical feasibility of all major features.</p>
                     </div>
                 </div>
-                <div class="roadmap-card">
+                <div class="item-card">
                     <div class="card-header">
                         <div class="card-number">2</div>
                         <div class="card-title-group">
@@ -520,7 +526,7 @@
                         <p>Secure official resources to build the core agent on Vertex AI and a professional Chrome Extension frontend for a pilot group of Account Managers.</p>
                     </div>
                 </div>
-                <div class="roadmap-card">
+                <div class="item-card">
                     <div class="card-header">
                         <div class="card-number">3</div>
                         <div class="card-title-group">
@@ -535,23 +541,59 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <section id="future" class="section">
+            <h2 class="section-title">Future Enhancements: What's Next?</h2>
+            <p class="section-subtitle">Beyond the initial rollout, AiRA has the potential to become an indispensable tool for the entire sales organization. Here are some ideas in the pipeline.</p>
+            <div class="card-grid-3-col">
+                <div class="item-card">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon-future">dashboard</span>
+                        <div class="card-title-group">
+                            <h3 class="card-title">AiRA Manager Dashboard</h3>
+                            <div class="card-status" style="color: var(--accent-yellow);">IN PIPELINE</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Provide sales leaders with a strategic dashboard showing team activity, market signals (TAM), renewal risks, expansion opportunities, and AI-driven coaching recommendations.</p>
+                        <img src="image_33ddbd.jpg" alt="AiRA Manager Dashboard Concept">
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon-future">quick_phrases</span>
+                        <div class="card-title-group">
+                            <h3 class="card-title">"Help Me Reply" (Gmail Integration)</h3>
+                             <div class="card-status" style="color: var(--accent-yellow);">IN PIPELINE</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Integrate AiRA directly into Gmail via Chrome Extension. When faced with a challenging client/partner email (e.g., competitive threats, complex requests like the M365 example), click 'Help Me Reply'. AiRA reads the context and drafts a strategic, value-driven response leveraging its client knowledge to suggest the best action for both the client and Google's growth.</p>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="card-header">
+                        <span class="material-symbols-outlined card-icon-future">campaign</span>
+                        <div class="card-title-group">
+                            <h3 class="card-title">Proactive Alert System</h3>
+                            <div class="card-status" style="color: var(--text-muted);">CONCEPT</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Automatically monitor accounts for critical triggers (e.g., major competitor mention, sudden seat drop, negative news) and proactively alert the Account Manager via Chat or Email with suggested next steps.</p>
+                        <img src="image_29ff5f.png" alt="AiRA Proactive Alert System Concept">
+                    </div>
+                </div>
+                </div>
+        </section>
         <section id="contact" class="section">
             <h2 class="section-title">See AiRA in Action</h2>
             <p class="section-subtitle">Launch the live prototype to experience the workflow, or get in touch to join the pilot program and help shape the future of AiRA.</p>
             <div class="contact-buttons">
-                <!-- ACTION REQUIRED: Replace '#' with the link to your live AiRA web app -->
                 <a href="https://script.google.com/a/macros/google.com/s/AKfycbwYQjeH-GKdLoIvjnAu_AJ5guOvNs0PivNLlr2N0MFDWn7UShbFes38M2xRX5vqPoWsUg/exec" target="_blank" class="button">
                     <span class="material-symbols-outlined">rocket_launch</span>
                     Launch Live Demo
                 </a>
-                
-                <!-- 
-                  ACTION REQUIRED: 
-                  1. Find your Google Chat User ID as described in our conversation.
-                  2. Paste it below, replacing "YOUR_USER_ID_HERE".
-                -->
-                <a href="https://moma.corp.google.com/person/me?prev_event_id=-qrvaICVAqCLsOQP0sKowAM">
+                 <a href="https://moma.corp.google.com/person/me?prev_event_id=-qrvaICVAqCLsOQP0sKowAM">
                     <span class="material-symbols-outlined">chat</span>
                     Provide Feedback via Chat
                 </a>
@@ -560,7 +602,7 @@
     </main>
 
     <footer>
-        <p>Project Lead: [Abdelrahman Ghanem ( aghanem )] | Last Updated: October 2025</p>
+        <p>Project Lead: [Abdelrahman Ghanem ( aghanem )] | Last Updated: October 22, 2025</p>
     </footer>
 
     <script>
@@ -577,4 +619,3 @@
 
 </body>
 </html>
-
